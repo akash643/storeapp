@@ -1,0 +1,55 @@
+
+
+
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header mt-5 pt-5">
+      <div class="container-fluid">
+        <div class="row float-right">
+          <div class="col-12">
+            <a><%= button_to "Add plan", new_subscription_product_path, method: :get, class: "btn btn-success p-2 add_user"  %></a>
+          </div> 
+        </div>
+        <div class="bootstrap snippets bootdey pt-5 mt-5">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                  <div class="table-responsive">
+                    <table class="table user-list">
+                      <thead>
+                        <tr>
+                          <th><span>Plan name</span></th>
+                          <th><span>Price</span></th>
+                        
+                          <th><span>Action</span></th>
+                        </tr>
+                      </thead>
+                      <tbody id="user_list">
+                   <% @subscriptions.each do |s| %>
+                      <tr>
+                                <td>
+                                <span class="user_name" style="font-size: 15px;"><%= s.plan_name %> </span>
+                                </td>
+                                <td><%= s.price %></td>
+                              
+                                <td style="width: 20%;">
+                               <a><%= link_to "Edit plan", edit_subscription_product_path(s), method: :get, class: "table-link edit_button mr-1"  %></a>
+
+                               <a><%= link_to "Delete",:action => 'destroy',method: :delete, :id => s.id, class: "table-link dlt_button"  %></a>
+                               
+                              
+                               
+                                </td>
+                            </tr>
+                            <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
